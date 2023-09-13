@@ -1,0 +1,3 @@
+[submodule "pepr-grafana-capability"]
+	path = pepr-grafana-capability
+	url = git@github.com:AustinAbro321/pepr-grafana-capability.git
