@@ -1,0 +1,23 @@
+kind: ZarfPackageConfig
+metadata:
+  name: podinfo
+  description: "Deploy helm chart for the podinfo application in K8s via zarf"
+
+components:
+  - name: namespace
+    description: Podinfo namespace manifest with the proper label
+    required: true
+    manifests:
+      - name: namespace-manifest
+        files:
+          - manifests/namespace.yaml
+  - name: podinfo
+    required: true
+    charts:
+      - name: podinfo
+        version: 6.4.1
+        namespace: podinfo
+        releaseName: podinfo
+        url: https://stefanprodan.github.io/podinfo
+    images:
+      - ghcr.io/stefanprodan/podinfo:6.4.1

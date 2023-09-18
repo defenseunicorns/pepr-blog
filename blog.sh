@@ -9,8 +9,7 @@ zarf package deploy oci://ghcr.io/defenseunicorns/packages/metallb:0.0.1-amd64 -
 zarf package deploy oci://ghcr.io/defenseunicorns/packages/dubbd-k3d:0.8.0-amd64 --confirm --set=APPROVED_REGISTRIES="127.0.0.1* | ghcr.io/defenseunicorns/pepr* | ghcr.io/stefanprodan* | registry1.dso.mil"
 
 # setup capability stuff
-kubectl create namespace admin-ns-devs-do-not-access
-kubectl create secret grafana-admin-api-key -n admin-ns-devs-do-not-access
+kubectl apply -f demo-stuff/grafana-creds.yaml
 
 cd pepr-grafana-capability && npx pepr build
 zarf package create pepr-grafana-capability/dist --confirm --output .

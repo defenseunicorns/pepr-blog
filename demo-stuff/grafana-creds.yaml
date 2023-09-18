@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: admin-ns-devs-do-not-access
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: grafana-admin-api-key
+  namespace: admin-ns-devs-do-not-access
+type: Opaque
+stringData:
+  value: glsa_ouFvblGHrKvZIHiu9s0YPettMs4d7t57_731a53cd # <- Put Grafana API / service account token here
